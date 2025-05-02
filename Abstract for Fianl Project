@@ -3,7 +3,19 @@ Final Goal: Compare 2 datasets of human genome.
 Purpose of comparing 2 genes of Datasets?
 Comparing 2 genes within the same human genome?
 
+Important concepts:
+  - Genome is a set of complete DNA, and gene is the functional segments of DNA within the genome. 
+  - Human genome (from UCSC browser) refers to the reference genome (not a single individual), which allow researchers to map sequences from different individuals to the reference genome.
+
 Comparing genes within the same genome, we can:
 1. Identify gene families, so we can study how new gene functions evolved.
 2. To see if genes have overlapping functions, which can compensate for another when it's mutated.
 3. Some genes are newly discovered, comparing them to well-known genes helps predict their function.
+
+If we compare GRCh38/hg38 vs T2T CHM13v2.0/hs1:
+  - GRCh38/hg38 is the older version of reference human genome.
+  - T2T CHM13v2.0/hs1 is the new version of reference human genome, with less gap (or gapless)?
+  - Comparing those two we can:
+    - See the % accuarcy between those two.
+    - How many gaps 
+
