@@ -1,7 +1,9 @@
-Final Goal: Compare 2 datasets of human genome.
+Group Members: JooYoung Gwag, Karen Wang, Keerthana Ande
 
-Purpose of comparing 2 genes of Datasets?
-Comparing 2 genes within the same human genome?
+Final Goal: Compare 2 datasets of old and new human genome.
+
+Purpose of comparing 2 old and new genomes?
+-> 
 
 Important concepts:
   - Genome is a set of complete DNA, and gene is the functional segments of DNA within the genome. 
@@ -23,4 +25,14 @@ THINGS TO ASK
 1. 2 gene datasets in one Genome or compare the old and new genome?
 2. What will be the good looking output for this project. Like what kind of looking is good for final.
 3. Need to find out how to use UCSC Genome browser
-4. 
+
+
+Abstract:
+The human genome has been updated several times since it was first published. 
+In this project, we compare an older version of the human genome (GRCh38) with a newer version (T2T-CHM13) to find 
+the differences between them. Using bioinformatics tools, we identify regions that are new, missing, or changed in the updated genome. 
+The goal is to create a list of these genomic differences and understand what has improved in the new version. 
+This comparison helps us see how the human genome reference is getting more complete over time, 
+which is important for future research in genetics and medicine.
+# I think this is more like an abstract that looks right.
+# PLZ add something more or share your thoughts!!
