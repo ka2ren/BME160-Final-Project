@@ -28,11 +28,16 @@ THINGS TO ASK
 
 
 Abstract:
-The human genome has been updated several times since it was first published. 
-In this project, we compare an older version of the human genome (GRCh38) with a newer version (T2T-CHM13) to find 
-the differences between them. Using bioinformatics tools, we identify regions that are new, missing, or changed in the updated genome. 
-The goal is to create a list of these genomic differences and understand what has improved in the new version. 
-This comparison helps us see how the human genome reference is getting more complete over time, 
-which is important for future research in genetics and medicine.
+The human genome has been updated several times since it was first published, each aiming to improve its completeness and accuracy. 
+In this project, we compare an older version of the reference human genome (GRCh38) with a more recent version (T2T-CHM13) to find 
+the differences between them. Using bioinformatics tools and the data from the UCSC Genome Browser, we can identify regions that are new, missing, or changed in the updated genome. 
+Ultimately, the goal is to create a detailed list of these genomic differences and understand what has improved in the newer version. 
+This comparison helps us see how the human genome reference continues to evolve over time, especially by filling in regions that were either missing or unclear in the older versions. 
+Using outdated genomes can have serious consequences, affecting everything from disease diagnosis to the development of targeted treatments and therapies. 
+By recognizing these changes in the human genome, we can improve the accuracy of the analysis in genetics and biomedical research. 
+
 # I think this is more like an abstract that looks right.
 # PLZ add something more or share your thoughts!!
+
+# Heyy, i changed a bit of the abstract to look a little more complete, but feel free to change it. 
+
