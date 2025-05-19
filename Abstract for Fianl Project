@@ -44,6 +44,15 @@ chrX    155000000   155100000   new_lncRNA_region
 """
 Something like above.
 
+
 By May 30: Design is due
 -> one page long design (professor prefers diagram)
 Any ideas on this?
+
+
+
+1) Purpose of comparing old and new genome. 
+2) What can we find out by comparing those two?
+3) On the genome browser, [BED-STYLE NEW OR CHANGED REGIONS] part is already done by each genome. How are we gonna differciate this by comparing 2 genomes?
+
+
