@@ -2,31 +2,6 @@ Group Members: JooYoung Gwag, Karen Wang, Keerthana Ande
 
 Final Goal: Compare 2 datasets of old and new human genome.
 
-Purpose of comparing 2 old and new genomes?
--> 
-
-Important concepts:
-  - Genome is a set of complete DNA, and gene is the functional segments of DNA within the genome. 
-  - Human genome (from UCSC browser) refers to the reference genome (not a single individual), which allow researchers to map sequences from different individuals to the reference genome.
-
-Comparing genes within the same genome, we can:
-1. Identify gene families, so we can study how new gene functions evolved.
-2. To see if genes have overlapping functions, which can compensate for another when it's mutated.
-3. Some genes are newly discovered, comparing them to well-known genes helps predict their function.
-
-If we compare GRCh38/hg38 vs T2T CHM13v2.0/hs1:
-  - GRCh38/hg38 is the older version of reference human genome.
-  - T2T CHM13v2.0/hs1 is the new version of reference human genome, with less gap (or gapless)?
-  - Comparing those two we can:
-    - See the % accuarcy between those two.
-    - How many gaps 
-
-THINGS TO ASK
-1. 2 gene datasets in one Genome or compare the old and new genome?
-2. What will be the good looking output for this project. Like what kind of looking is good for final.
-3. Need to find out how to use UCSC Genome browser
-
-
 Abstract:
 The human genome has been updated several times since it was first published, each aiming to improve its completeness and accuracy. 
 In this project, we compare an older version of the reference human genome (GRCh38) with a more recent version (T2T-CHM13) to find 
@@ -34,10 +9,41 @@ the differences between them, and what genes are being transcripted. Using bioin
 Ultimately, the goal is to create a detailed list of these genomic differences and understand what has improved in the newer version. 
 This comparison helps us see how the human genome reference continues to evolve over time, especially by filling in regions that were either missing or unclear in the older versions. 
 Using outdated genomes can have serious consequences, affecting everything from disease diagnosis to the development of targeted treatments and therapies. 
-By recognizing these changes in the human genome, we can improve the accuracy of the analysis in genetics and biomedical research. 
+By recognizing these changes in the human genome, we can improve the accuracy of the analysis in genetics and biomedical research.
 
-# I think this is more like an abstract that looks right.
-# PLZ add something more or share your thoughts!!
+Design (Output):
+1. High-level genome/gene statistics (e.g., sizes, counts)
+2. Region-level BED data (e.g., new or changed genomic regions)
 
-# Heyy, i changed a bit of the abstract to look a little more complete, but feel free to change it. 
-# Yo feel free to change anything KW
+"""
+=== Human Genome Comparison Report ===
+
+[GENOME STATISTICS]
+Total genome size:
+- GRCh38:      3,095,677,412 bp
+- T2T-CHM13:   3,117,275,501 bp
+- Difference:  +21,598,089 bp
+
+Gap regions:
+- GRCh38:      151 gaps
+- T2T-CHM13:   0 gaps
+
+Protein-coding genes:
+- GRCh38:      19,969
+- T2T-CHM13:   20,412
+- New genes:   443
+
+---------------------------------------
+[BED-STYLE NEW OR CHANGED REGIONS]
+Format: chr   start   end   label
+
+chr1    248956422   248957000   new_sequence
+chr13   95000000    96000000    complete_rDNA
+chr9    130000000   131000000   novel_segmental_dup
+chrX    155000000   155100000   new_lncRNA_region
+"""
+Something like above.
+
+By May 30: Design is due
+-> one page long design (professor prefers diagram)
+Any idea on this?
