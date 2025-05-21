@@ -52,7 +52,25 @@ Any ideas on this?
 
 
 1) Purpose of comparing old and new genome. 
-2) What can we find out by comparing those two?
-3) On the genome browser, [BED-STYLE NEW OR CHANGED REGIONS] part is already done by each genome. How are we gonna differciate this by comparing 2 genomes?
+  The main purpose of compairing the old human genome GRCh38 with the newer and more complete genome T2T-CHM13 is to understand the improvements in the accuracy, completeness, and the biological relevance of the human genome.
+  GRCh39, while still being widely used to this day, contains many unresolved regions with gaps, repetitive sequences, and also incomplete centromeres.
+  In contrast, the T2T-chm13 included the entire genome from end to end, where all the missing or ambiguous regions are all filled. 
+  By comparing these two genomes, we can identify what is missing in the GRCh38, what has changed in the sequence, as well as how these changes will effect the gene annotation, especially in the protein coding and non coding regions.
+  This is critical since analyses based on the outdated genome versions can lead to incorrect variant interpretation, misdiagonis, or even missed findings. 
 
+2) What can we find out by comparing those two?
+  As stated above, by comparing the two genomes we can discover the several important differences that reveal how the human genome reference has been improved.
+  First, we can see how the new genomic regions which are only present in the T2T-CHM13 have filled the previously missing sequences in the centromeres, telomeres, and even the duplicate segments.
+  Second, we can detect exactly what is missing or incompelete in the regions of GRCh38, which will then help us understand which parts the genome were previously inaccurate. 
+  Third, we can find if there were any structural changes, such as rearrangements, inversions, and duplications, that have an effect on how the genes are organized. 
+  Overall, this analysis will help with creating a detailed map of how the genome was evolved from GRCh38 to T2T-CHM13 and what that means for genomic research. 
+  
+3) On the genome browser, [BED-STYLE NEW OR CHANGED REGIONS] part is already done by each genome. How are we gonna differciate this by comparing 2 genomes?
+  - Correct me if I'm wrong but I think the genome browser that shows BED tracks seperately for each genome and isnt a direct comparison between GRCh38 and T2T-CHM13. 
+  - So even tho we technically have a "new" or like "updated" regions, we dont really have like a clear side by side view of the differences.
+  - I think the things we can add to our own BED can be:
+      ~ Regions that exist in T2T-CHM13 but not in GRCh38, these are probably newly added sequences 
+      ~ Regions that are in GRCh38 but not in T2T-CHM13, idk if we would find any of these, but if there are we can flag them
+      ~ Parts that align but are structurally different, so like parts were they are either flipped, longer or even rearranged
+  - These are just some ideas, feel free to add more
 
