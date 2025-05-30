@@ -17,13 +17,6 @@ Basic code design:
 
 Project Design 
 
-Project Goal:
-The aim of this project is to compare the telomeric regions of the human genome between GRCh38 (the older reference) and T2T-CHM13 (the newer and complete version).
-GRCh38, the older reference genome, contains many unresolved regions, particularly in the telomeres which are the long stretches of "N". 
-In contrast, the newer T2T-CHM13 (which is Telomere to Telomere) fills in these gaps and includes the full telomeric repeat sequences, like the TTAGGG patterns.
-By comparing the complete telomere sequences in T2T-CHM13 to the gaps in GRCh38, we can measure how much information was missing before and learn more about natural differences in telomere length.
-# idk we we need prject goal for the design so can can choose if we want to include this or not
-
 Data Source:
 The data used in this project comes from the UCSC Genome Browser, which provides access to both the GRCh38 and T2T-CHM13 genome sequences. 
 We specifically downloaded the chromosome sequences in FASTA format for both GRCh38 and T2T-CHM13 assemblies.
@@ -32,8 +25,8 @@ We specifically downloaded the chromosome sequences in FASTA format for both GRC
 Problem: 
 The human reference genome GRCh38 has been the used as the foundation for many genetic studies, diagnostics, and medical treatments. 
 However, it still contains many unresolved regions, especially at chromosome ends called telomeres, where there are long stretches of unknown bases (N).
-This and complete information could have led to many incorrect conclusions or even flawed treatment based off of incorrect genome data. 
-The newer T2T-CHM13 assembly fills in these gaps, providing a complete and accurate picture of telomeric regions. 
+This and complete information could have led to many incorrect conclusions or even incorrect treatment based off of wrong/old genome data. 
+The newer T2T-CHM13 assembly fills in these gaps, providing a complete and more accurate image of telomeric regions. 
 While the Genome Browser does provide access to both the genomes and also contains the new and updated telomeric sequences, it does not clearly identify exactly what is new, changed, or even missing compared to the old genome. 
 And, ir is very time consuming and challenging to download the full chromosome sequences and perform a comparison between the telomers of the genomes. 
 However, this comparison is essential to identify the exact changes between the two genomes since it will help update research, fix any past errors, and also improve medical diagnostics that depend on genome data. 
