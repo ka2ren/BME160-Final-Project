@@ -1,0 +1,5 @@
+1. Instead of the entire human genome sequence, we will focus on comparing one chromosome.
+
+From Bernick: Identify telomeres
+  - GRCh38 leaves telomeres as long runs of “N”s, so you couldn’t see their true sequence or     length. T2T fills in the actual TTAGGG repeat arrays (and their variants). Comparing the two tells you exactly how many repeats were unrepresented before.
+  - By counting repeats in T2T vs. counting the gap size in GRCh38, you can now precisely measure telomere length—and discover natural variation between individuals or cell types.
