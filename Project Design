@@ -1,48 +1,35 @@
-1. Instead of the entire human genome sequence, we will focus on comparing one chromosome.
+Group Members: JooYoung Gwag, Karen Wang, Keerthana Ande
 
-From Bernick: Identify telomeres
-  - GRCh38 leaves telomeres as long runs of “N”s, so you couldn’t see their true sequence or length. T2T fills in the actual TTAGGG repeat arrays (and their variants). Comparing the two tells you exactly how many repeats were unrepresented before.
-  - By counting repeats in T2T vs. counting the gap size in GRCh38, you can now precisely measure telomere length.
+Project Title:Comparative Analysis of Telomeric Regions in GRCh38 and T2T-CHM13 Genome Assemblies
 
-Comment from Karen (me):
-  - Since the human genome browser has already shown the total length of chromosome, it prob makes more sense to measure the telomere length instead.
-  -  We can:
-      1. find the N's(gap size) in GRCH38 chromosome, and the repeats in T2T.
-      2. By comparing them we can know if the gaps are all filled in T2T, and the accuracy of the telomere length.
+Data Source: The data used in this project is sourced from the UCSC Genome Browser. Specifically, we downloaded chromosome sequences in FASTA format from both the GRCh38 and the T2T-CHM13 genome assemblies.
 
-Basic code design:
-  1. Parse and read the FASTA files we obtained from the UCSC Human Genome Browser.
-  2. Detect telomeric sequences (TTAGGG) in the top and bottom strands. 
+Problem Statement: The GRCh38 human reference genome, despite being widely used in genetic studies and medical diagnostics, contains unresolved regions—particularly at the telomeric ends of chromosomes—where the sequence is represented by long stretches of unknown bases denoted as "N." These unresolved sequences pose a risk of incorrect genetic interpretation or medical diagnostics.
+                  The newer T2T-CHM13 assembly addresses this issue by fully sequencing previously unresolved regions, including the telomeres, and providing accurate telomeric repeat arrays (typically TTAGGG). Despite this improvement, the Genome Browser does not highlight the differences explicitly, making it challenging and time-consuming for researchers to manually identify and compare the changes between the two assemblies.
 
+Solution Overview: To address the issue, our project will focus on comparing the telomeric regions of a selected chromosome (e.g., Chromosome X) from the GRCh38 and T2T-CHM13 assemblies. The aim is to:
+  1. Identify and measure gaps (i.e., runs of 'N') in the GRCh38 telomeric regions.
+  2. Detect and count TTAGGG repeats in the corresponding regions of the T2T-CHM13 assembly.
+  3. Compare these metrics to determine whether the gaps in GRCh38 were fully resolved in the T2T assembly and estimate actual telomere length.
 
-Project Design 
+Technical Approach (Code Design):
+    1. Data Parsing:
+          Read the FASTA files containing chromosome sequences from both genome assemblies using a custom parser or Biopython.
+    2. Telomere Detection Logic:
+          -For GRCh38:
+Search the beginning and end of the sequence for long stretches of 'N'.
+Count the length of these stretches to estimate the gap size.
+          -For T2T-CHM13:
+Search for continuous runs of the telomeric repeat "TTAGGG" (and its reverse complement on the opposite end).
+Count the number of repeats to estimate telomere length.
+    3. Comparison Algorithm:
+          -Compare the length of telomeric repeats in T2T-CHM13 to the gap size in GRCh38.
+          -Determine if the gaps are fully resolved and estimate the true length of the telomeres.
+    4. Output:
+          -Report the number of 'N's in GRCh38.
+          -Report the number of TTAGGG repeats in T2T-CHM13.
+          -Display whether the gaps are completely filled and provide a length estimate of the telomeres.
 
-Data Source:
-The data used in this project comes from the UCSC Genome Browser, which provides access to both the GRCh38 and T2T-CHM13 genome sequences. 
-We specifically downloaded the chromosome sequences in FASTA format for both GRCh38 and T2T-CHM13 assemblies.
-# Please feel free to add to this
+Conclusion: This project will deliver a clear comparison of telomeric regions between GRCh38 and T2T-CHM13, offering insights into how much previously unsequenced telomeric data has been recovered. The methodology is extensible and can be applied to other chromosomes or repeat sequences in future analyses.
 
-Problem: 
-The human reference genome GRCh38 has been the used as the foundation for many genetic studies, diagnostics, and medical treatments. 
-However, it still contains many unresolved regions, especially at chromosome ends called telomeres, where there are long stretches of unknown bases (N).
-This and complete information could have led to many incorrect conclusions or even incorrect treatment based off of wrong/old genome data. 
-The newer T2T-CHM13 assembly fills in these gaps, providing a complete and more accurate image of telomeric regions. 
-While the Genome Browser does provide access to both the genomes and also contains the new and updated telomeric sequences, it does not clearly identify exactly what is new, changed, or even missing compared to the old genome. 
-And, ir is very time consuming and challenging to download the full chromosome sequences and perform a comparison between the telomers of the genomes. 
-However, this comparison is essential to identify the exact changes between the two genomes since it will help update research, fix any past errors, and also improve medical diagnostics that depend on genome data. 
-# I might have been a lil repetitive so feel free to delete or add stuff
-
-Solution: 
-In order to solve this problem, we first have to pick one chromosome to focus on. 
-Then we download the full sequence of the chromosome from both the genomes and focus on the telomeric regions, which are found at the ends of chromosomes. 
-In GRCh38, these regions are often shown as long runs of the letter “N,” which means the actual DNA sequence was unknown or not sequenced properly. 
-As stated before, the T2T-CHM13 will contain the full sequence of these regions, including the actual TTAGGG telomeric repeats.
-Essentially our code will:
-  - Parse and read the FASTA files we obtained from the UCSC Human Genome Browser
-  - Identify the telomeric regions at both ends of the chromosomes
-  - In GRCh38, locate and measure gaps, by counting the number of missing base pairs in the length of the "N" stretches
-  - Detect and counts the number of telomeric repeats (TTAGGG) present in the T2T-CHM13 sequence
-  - Compare the length of the telomeric repeats in T2T-CHM13 with the gap sizes in GRCh38 
-      ~ This will check if the gaps in GRCh38 are completely filled in the T2T
-      ~ Estimate the actual length of the telomeres in the complete genome.
-# Can yall double check if i got the code part right, and change it if not
+Note: We chose to focus on telomeric sequences due to their medical relevance and the striking difference in sequence completeness between the two assemblies. The project simplifies the otherwise complex process of genome comparison using an automated and reproducible computational approach.
