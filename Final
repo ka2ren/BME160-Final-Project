@@ -1,3 +1,49 @@
 #!/usr/bin/env python3
 # Name: Keerthana, Karen, Jooyoung
 
+import matplotlib.pyplot as plt
+
+# Function to read sequence from FASTA without Biopython
+def read_fasta(file_path):
+    sequence = ""
+    with open(file_path, "r") as f:
+        for line in f:
+            if not line.startswith(">"):
+                sequence += line.strip().upper()
+    return sequence
+
+# Running count of "TTAGGG"
+def running_ttaggg_count(sequence, step=10000):
+    counts = []
+    for i in range(0, len(sequence), step):
+        window = sequence[:i+step]
+        total = window.count("TTAGGG")
+        counts.append(total)
+    return counts
+
+# Load sequences
+grch38_seq = read_fasta("GRCH38_chr1.fasta")
+t2t_seq = read_fasta("T2T_chr1.fasta")
+
+# Set step size
+step_size = 10000
+
+# Running counts
+y_grch = running_ttaggg_count(grch38_seq, step=step_size)
+y_t2t = running_ttaggg_count(t2t_seq, step=step_size)
+
+# Generate X values (base pairs)
+x_grch = list(range(step_size, step_size * (len(y_grch) + 1), step_size))
+x_t2t = list(range(step_size, step_size * (len(y_t2t) + 1), step_size))
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(x_grch, y_grch, label="GRCh38")
+plt.plot(x_t2t, y_t2t, label="T2T")
+plt.xlabel("Base Pairs")
+plt.ylabel("Cumulative TTAGGG Count")
+plt.title("Cumulative TTAGGG Repeats Across DNA")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
