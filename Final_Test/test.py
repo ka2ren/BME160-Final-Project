@@ -47,7 +47,7 @@ class FastAreader :
         yield header,sequence
 
 
-def get_positive_strand(GRCH38_file, max_records=5):
+def get_positive_strand(GRCH38_file, max_records=1):
     ''' Extract sequences and ranges for positive strand from GRCh38 FASTA file. '''
     pos_strand_seqs = []
     pos_strand_ranges = []
@@ -55,6 +55,7 @@ def get_positive_strand(GRCH38_file, max_records=5):
     count = 0
     for header, sequence in reader.readFasta():
         if "strand=+" in header:
+            # print(f"Processing: {header}")  # This will print each positive strand header
             # Extract range from header
             parts = header.split()
             for part in parts:
@@ -87,18 +88,16 @@ def count_telomeric_repeats(seq, repeat="TTAGGG"):
     """Count the number of telomeric repeats in a sequence."""
     return seq.upper().count(repeat)
 
-def compare_telomeric_repeats(grch38_seqs, t2t_regions, repeat="TTAGGG"):
-    print(f"{'Index':<5} {'GRCh38_count':<15} {'T2T_count':<10}")
-    print("-" * 35)
-    for i, (gseq, tseq) in enumerate(zip(grch38_seqs, t2t_regions)):
+def compare_telomeric_repeats(grch38_seqs, t2t_regions, grch38_ranges, repeat="TTAGGG"):
+    for (gseq, tseq, (start, end)) in zip(grch38_seqs, t2t_regions, grch38_ranges):
         g_count = count_telomeric_repeats(gseq, repeat)
         t_count = count_telomeric_repeats(tseq, repeat)
-        print(f"{i:<5} {g_count:<15} {t_count:<10}")
+        print(f"range: {start}-{end} {t_count} {g_count}")
 
 if __name__ == "__main__":
-    grch38_seqs, grch38_ranges = get_positive_strand("GRCH38_test.fasta", max_records=5)
+    grch38_seqs, grch38_ranges = get_positive_strand("GRCH38_test.fasta", max_records=1)
     t2t_regions = extract_t2t_regions("T2T_test.fasta", grch38_ranges)
-    compare_telomeric_repeats(grch38_seqs, t2t_regions)
+    compare_telomeric_repeats(grch38_seqs, t2t_regions, grch38_ranges)
 
 
 
