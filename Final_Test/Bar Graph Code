@@ -1,0 +1,41 @@
+import matplotlib.pyplot as plt
+
+def read_fasta(file_path):
+    sequence = ""
+    with open(file_path, "r") as f:
+        for line in f:
+            if not line.startswith(">"):
+                sequence += line.strip().upper()
+    return sequence
+
+def count_ttaggg(seq):
+    return seq.count("TTAGGG")
+
+grch38_seq = read_fasta("GRCH38_chr1.fasta")
+t2t_seq = read_fasta("T2T_chr1.fasta")
+
+grch38_start = grch38_seq[:100000]
+grch38_end = grch38_seq[-100000:]
+t2t_start = t2t_seq[:100000]
+t2t_end = t2t_seq[-100000:]
+
+grch38_counts = [count_ttaggg(grch38_start), count_ttaggg(grch38_end)]
+t2t_counts = [count_ttaggg(t2t_start), count_ttaggg(t2t_end)]
+
+labels = ["Start Telomere", "End Telomere"]
+x = [0, 1]  # positions for the two bars
+bar_width = 0.35
+
+plt.figure(figsize=(8, 6))
+
+plt.bar([i - bar_width/2 for i in x], grch38_counts, width=bar_width, color="blue", label="GRCh38")
+
+plt.bar([i + bar_width/2 for i in x], t2t_counts, width=bar_width, color="red", label="T2T")
+
+plt.xticks(x, labels)
+plt.ylabel("Number of TTAGGG Repeats")
+plt.title("TTAGGG Repeats in Telomeric Regions (chr1)")
+plt.legend()
+plt.grid(axis='y')
+plt.tight_layout()
+plt.show()
