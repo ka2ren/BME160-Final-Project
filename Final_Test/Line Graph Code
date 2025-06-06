@@ -27,8 +27,8 @@ def running_ttaggg_count(sequence, step=10000):
     return counts
 
 # Load sequences
-grch38_seq = read_fasta("/Users/jooyounggwag/BME 160/Final Project/GRCH38_test.fasta")
-t2t_seq = read_fasta("/Users/jooyounggwag/BME 160/Final Project/T2T_chr1.fasta")
+grch38_seq = read_fasta("GRCH38_test.fasta")
+t2t_seq = read_fasta("T2T_chr1.fasta")
 
 # Extract first and last 100,000 bases
 grch38_seq = grch38_seq[:100000]
