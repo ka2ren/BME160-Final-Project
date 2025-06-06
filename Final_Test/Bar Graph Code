@@ -14,7 +14,7 @@ def count_ttaggg(seq): # This will count how many times the "TTAGGG" repeats occ
 grch38_seq = read_fasta("GRCH38_test.fasta") # this will read the sequences from the two genome assemblies
 t2t_seq = read_fasta("T2T_chr1.fasta")
 
-grch38_start = grch38_seq[:100000] # this will extract only the first and last 100000 bases from each end of the sequence
+grch38_start = grch38_seq[:100000] # this will extract only the first and last 100000 bases from each end of the sequence 
 grch38_end = grch38_seq[-100000:]
 t2t_start = t2t_seq[:100000]
 t2t_end = t2t_seq[-100000:]
